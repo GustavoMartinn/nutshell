@@ -1,0 +1,312 @@
+:root {
+  --primary-color: #4a90e2;
+  --success-color: #2ecc71;
+  --danger-color: #e74c3c;
+  --bg-color: #f5f7fa;
+  --card-bg: #ffffff;
+  --text-color: #2c3e50;
+  --border-color: #dfe6e9;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: var(--text-color);
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.app-header {
+  text-align: center;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.app-header h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.game-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  flex: 1;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.control-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+}
+
+.control-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.control-btn.new-question {
+  background: var(--primary-color);
+  color: white;
+}
+
+.control-btn.reveal-all {
+  background: var(--success-color);
+  color: white;
+}
+
+.control-btn.hide-all {
+  background: var(--danger-color);
+  color: white;
+}
+
+.category-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.question-display h2 {
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.words-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+
+.word-box {
+  padding: 0.75rem 1.25rem;
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: white;
+  min-width: 80px;
+  text-align: center;
+}
+
+.word-box:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow);
+}
+
+.word-box.revealed {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.word-box.hidden {
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.divider {
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--border-color),
+    transparent
+  );
+  margin: 2rem 0;
+}
+
+.answer-section {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.show-answer-btn {
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+}
+
+.show-answer-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.answer-display {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: var(--bg-color);
+  border-radius: 10px;
+  font-size: 1.3rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.guess-section {
+  margin-top: 2rem;
+}
+
+.guess-section h3 {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.guess-section form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.guess-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.guess-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.guess-submit-btn {
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--primary-color);
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+}
+
+.guess-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.guess-result {
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.guess-result.correct {
+  background: var(--success-color);
+  color: white;
+}
+
+.guess-result.incorrect {
+  background: var(--danger-color);
+  color: white;
+}
+
+.app-footer {
+  text-align: center;
+  color: white;
+  margin-top: 2rem;
+  padding: 1rem;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .app {
+    padding: 1rem;
+  }
+
+  .app-header h1 {
+    font-size: 2rem;
+  }
+
+  .game-container {
+    padding: 1.5rem;
+  }
+
+  .controls {
+    flex-direction: column;
+  }
+
+  .control-btn {
+    width: 100%;
+  }
+
+  .guess-section form {
+    flex-direction: column;
+  }
+
+  .guess-submit-btn {
+    width: 100%;
+  }
+}
